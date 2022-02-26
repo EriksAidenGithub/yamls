@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: zondermoeite.nl
+  commonName: 20.105.248.103.nip.io
   dnsNames:
-  - zondermoeite.nl
+  - 20.105.248.103.nip.io
