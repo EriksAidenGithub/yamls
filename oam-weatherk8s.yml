@@ -1,0 +1,21 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: oam-weather-deploy
+  namespace: 'fontys'
+spec:
+  components:
+    - name: oam-weather
+      type: webservice
+      properties:
+        image: eriksaidendockersetup/weather
+        port: 80
+      traits:
+        - type: gateway
+          properties:
+            domain: oam.fontys.nl
+            http:
+              "/": 80
+        - type: scaler 
+          properties:
+            replicas: 3
