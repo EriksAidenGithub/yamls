@@ -15,7 +15,7 @@ spec:
           properties:
             domain: oam.fontys.nl
             http:
-              "/": 8080
+              "/": 80
         - type: scaler 
           properties:
             replicas: 3
