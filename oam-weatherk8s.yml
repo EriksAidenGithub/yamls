@@ -19,3 +19,4 @@ spec:
         - type: scaler 
           properties:
             replicas: 3
+            
