@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-deploy
+  namespace: gke
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: weather-pod
+  template:
+    metadata:
+      labels:
+        app: weather-pod
+    spec:
+      containers:
+      - name: weather-container
+        image:  eriksaidendockersetup/weather
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: acr-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: weather-service
+  namespace: gke
+spec:
+  selector:
+    app: weather-pod
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ name: weather-ingress
+ namespace: gke
+ annotations:
+   nginx.ingress.kubernetes.io/rewrite-target: /weatherforecast
+spec:
+ ingressClassName: nginx
+ rules:
+ - host: zondermoeite.nl
+   http:
+     paths:
+     - path: /v1/weather
+       pathType: Exact
+       backend:
+         service:
+           name: weather-service
+           port:
+             number: 80
