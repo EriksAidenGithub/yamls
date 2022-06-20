@@ -48,14 +48,14 @@ metadata:
  namespace: gke
  annotations:
    kubernetes.io/ingress.global-static-ip-name: external-ip
-   nginx.ingress.kubernetes.io/rewrite-target: /weatherforecast
+   # nginx.ingress.kubernetes.io/rewrite-target: /weatherforecast
 spec:
  ingressClassName: nginx
  rules:
  - host: zondermoeite.nl
    http:
      paths:
-     - path: /v1/weather
+     - path: /weatherforecast
        pathType: Exact
        backend:
          service:
