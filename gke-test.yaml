@@ -33,7 +33,7 @@ metadata:
   name: weather-service
   namespace: gke
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: weather-pod
   ports:
