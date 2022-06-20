@@ -47,6 +47,7 @@ metadata:
  name: weather-ingress
  namespace: gke
  annotations:
+   kubernetes.io/ingress.global-static-ip-name: external-ip
    nginx.ingress.kubernetes.io/rewrite-target: /weatherforecast
 spec:
  ingressClassName: nginx
