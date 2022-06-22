@@ -33,7 +33,7 @@ metadata:
   name: weather-service
   namespace: gke
 spec:
-  type: ClusterIp
+  type: ClusterIP
   selector:
     app: weather-pod
   ports:
