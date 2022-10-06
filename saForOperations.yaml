@@ -3,4 +3,4 @@ kind: ServiceAccount
 metadata:
   name: service-account-for-gcp-operations
   annotations:
-    iam.gke.io/gke-service-account: service-account-for-gcp-operations@aiden-development-cluster.iam.gserviceaccount.com
+    iam.gke.io/gke-service-account: sa-for-gcp-operations@aiden-development-cluster.iam.gserviceaccount.com
