@@ -8,15 +8,15 @@ metadata:
 spec:
   syncPolicy:
     automated:
-        prune: true
-        selfHeal: true
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
-   destination:
+  destination:
      namespace: nginx
      server: https://kubernetes.default.svc
-   project: default
-   source:
+  project: default
+  source:
      chart: nginx
      repoURL: https://charts.bitnami.com/bitnami
      targetRevision: 9.5.3
