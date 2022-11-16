@@ -8,10 +8,10 @@ metadata:
 spec:
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
+        prune: true
+        selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
    destination:
      namespace: nginx
      server: https://kubernetes.default.svc
