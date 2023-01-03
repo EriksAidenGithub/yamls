@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps-development
+  namespace: argocd 
+  labels: 
+    environment: development 
+spec:
+  destination:
+    # namespace: needed?
+    name: in-cluster
+  source:
+    path: ./ApplicationsDev
+    repoURL: https://dev.azure.com/Asecom-Development/AidenSoftwarePlatform/_git/ArgoCD
+    targetRevision: Services 
+  project: retailbyaiden
