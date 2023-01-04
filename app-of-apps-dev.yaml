@@ -14,5 +14,4 @@ spec:
     repoURL: https://dev.azure.com/Asecom-Development/AidenSoftwarePlatform/_git/ArgoCD
     targetRevision: Services 
   project: retailbyaiden
-  syncPolicy:
-    automated:{}
+
